@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration
+    xmlns="http://www.opensaml.org/xmltooling-config"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#">
+
+    <!-- XML Signature Provider -->
+    <ObjectProviders>
+        <!-- XMLSignature -->
+        <Provider class="org.opensaml.xmlsec.signature.provider.XMLSignatureProvider"/>
+        <!-- X509Data -->
+        <Provider class="org.opensaml.xmlsec.signature.support.X509Provider"/>
+    </ObjectProviders>
+
+    <!-- Algorithm Descriptor Registry -->
+    <AlgorithmRegistry>
+        <!-- Signature Algorithms -->
+        <Algorithm type="Signature" uri="http://www.w3.org/2000/09/xmldsig#rsa-sha1" jcaAlgorithm="SHA1withRSA"/>
+        <Algorithm type="Signature" uri="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" jcaAlgorithm="SHA256withRSA"/>
+
+        <!-- Digest Algorithms -->
+        <Algorithm type="Digest" uri="http://www.w3.org/2000/09/xmldsig#sha1" jcaAlgorithm="SHA-1"/>
+        <Algorithm type="Digest" uri="http://www.w3.org/2001/04/xmlenc#sha256" jcaAlgorithm="SHA-256"/>
+
+        <!-- Encryption Algorithms -->
+        <Algorithm type="Encryption" uri="http://www.w3.org/2001/04/xmlenc#aes128-cbc" jcaAlgorithm="AES/CBC/PKCS5Padding"/>
+        <Algorithm type="Encryption" uri="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" jcaAlgorithm="RSA/ECB/OAEPWithSHA-1AndMGF1Padding"/>
+    </AlgorithmRegistry>
+
+    <!-- KeyInfo Providers -->
+    <KeyInfoProviderRegistry>
+        <KeyInfoProvider class="org.opensaml.xmlsec.keyinfo.provider.BasicKeyInfoProvider"/>
+    </KeyInfoProviderRegistry>
+
+</Configuration>
